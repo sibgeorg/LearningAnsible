@@ -1,0 +1,8 @@
+---
+  - hosts: all
+    tasks:
+        - name: ensure that services are running
+          service:
+              name: rsyslog
+              state: started
+              enabled: yes
