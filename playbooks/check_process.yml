@@ -3,6 +3,6 @@
     tasks:
         - name: ensure that services are running
           service:
-              name: rsyslog
+              name: "{{ process_name }}"
               state: started
               enabled: yes
