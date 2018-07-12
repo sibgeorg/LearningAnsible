@@ -1,2 +1,10 @@
 ---
-
+  - hosts: all
+    become: true
+    tasks:
+        - name: Updating all services using apt
+          apt:
+            upgrade: yes
+            #name: *
+            state: latest
+            update_cache: yes 
