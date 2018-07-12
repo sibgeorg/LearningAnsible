@@ -9,9 +9,13 @@
             module: ec2_elb
             region: us-east-1
             instance_id: "{{ ansible_ec2_instance_id }}"
-            state: absenti
+            state: absent
             wait_timeout: 120
     tasks:
+        - name: sleep for 120 seconds and continue with play
+          wait_for: 
+            timeout=120
+          delegate_to: localhost
         - name: ensure that services are running
           service:
               name: apache2
