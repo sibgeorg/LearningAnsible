@@ -1,0 +1,13 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+        - name: Installing apache2 using apt
+          apt:
+            name: apache2
+            state: latest
+        - name: Checking if apache2 is running or not
+          service:
+            name: apache2
+            state: started
+...    
