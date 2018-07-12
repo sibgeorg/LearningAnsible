@@ -1,5 +1,6 @@
 ---
   - hosts: all
+    become: true
     tasks:
         - name: ensure that services are running
           service:
