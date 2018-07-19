@@ -6,7 +6,6 @@
           action: ec2_metadata_facts
         - name: Instance De-register
           become: yes
-          become_user: ubuntu
           local_action:
             module: ec2_elb
             region: us-east-1
