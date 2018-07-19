@@ -3,7 +3,7 @@
     become: true
     pre_tasks:
         - name: Gathering ec2 facts
-          action: ec2_facts
+          action: ec2_metadata_facts
         - name: Instance De-register
           local_action:
             module: ec2_elb
@@ -16,10 +16,10 @@
           wait_for: 
             timeout=120
           delegate_to: localhost
-        - name: ensure that services are running
+        - name: Restarting apache2
           service:
               name: apache2
-              state: started
+              state: restarted
               enabled: yes
     post_tasks:
         - name: Instance Register
