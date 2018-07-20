@@ -13,16 +13,20 @@
             state: absent
             wait_timeout: 120
     tasks:
-        - name: sleep for 120 seconds and continue with play
+        - name: sleep for 15 seconds and continue with play
           become: True
           wait_for: 
-            timeout=120
+            timeout=15
         - name: Restarting apache2
           become: True
           service:
               name: apache2
               state: restarted
               enabled: yes
+        - name: sleep for 15 seconds and continue with play
+          become: True
+          wait_for: 
+            timeout=15
     post_tasks:
         - name: Instance Register
           become: False
