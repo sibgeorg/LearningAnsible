@@ -17,7 +17,6 @@
           become: True
           wait_for: 
             timeout=120
-          delegate_to: localhost
         - name: Restarting apache2
           become: True
           service:
