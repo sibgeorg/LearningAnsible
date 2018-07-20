@@ -14,16 +14,19 @@
             wait_timeout: 120
     tasks:
         - name: sleep for 120 seconds and continue with play
+          become: False
           wait_for: 
             timeout=120
           delegate_to: localhost
         - name: Restarting apache2
+          become: True
           service:
               name: apache2
               state: restarted
               enabled: yes
     post_tasks:
         - name: Instance Register
+          become: False
           local_action:
             module: ec2_elb
             region: us-east-1
