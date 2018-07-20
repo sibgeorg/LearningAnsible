@@ -14,7 +14,7 @@
             wait_timeout: 120
     tasks:
         - name: sleep for 120 seconds and continue with play
-          become: False
+          become: True
           wait_for: 
             timeout=120
           delegate_to: localhost
