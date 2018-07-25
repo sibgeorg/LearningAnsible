@@ -1,0 +1,13 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+        - name: Deleting tmp files
+          file:
+            state: absent
+            path: /tmp/pgpool.log
+        - name: ensure that services are running
+          service:
+              name: "{{ process_name }}"
+              state: restarted
+...
