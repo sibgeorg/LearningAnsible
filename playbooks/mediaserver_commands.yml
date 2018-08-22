@@ -11,5 +11,5 @@
           register: shell_result
           ignore_errors: True
         - debug: 
-            var: shell_result.stdout_lines
+            var: shell_result.stdout
 ...
