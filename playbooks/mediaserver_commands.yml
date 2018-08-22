@@ -9,6 +9,5 @@
         - name: Checking number of channels
           shell: /usr/local/freeswitch/bin/fs_cli -b -q -H 127.0.0.1 -P 8058 -p b1nladen -x 'show channels'
           register: shell_result
-        - debug:
-          var: shell_result.stdout_lines
+        - debug: msg= "{{ shell_result.stdout }}
 ...
